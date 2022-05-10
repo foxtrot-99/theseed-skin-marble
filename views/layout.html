@@ -1,0 +1,186 @@
+<!--[if IE]>
+	<style>
+		body {
+			padding: 0px !important;
+			background: aliceblue !important;
+		}
+		
+		button {
+			color: white !important;
+			background: darkblue;
+		}
+		
+		.noie {
+			display: none;
+			width: 0px;
+		}
+		
+		input:not([type]), input[type="text"], input[type="password"] {
+			padding: 0px !important;
+		}
+		
+		body > .c {
+			margin: 12px !important;
+		}
+		
+		body > .c > .container {
+			border: 1px solid black !important;
+			background: rgb(213, 226, 238) !important;
+		}
+	</style>
+<![endif]-->
+
+<!--[if IE]>
+	<img src=/skins/marble/static/img/iebg.jpg style="position: absolute; z-index: -999; width: 100%; height: 100%;" />
+<![endif]-->
+
+<div class=c style="z-index: 999;">
+	<div class=container>
+		<div class=glossy></div>
+		<nav>
+			<a href=/ >홈</a> | 
+			<a href=/RecentChanges >최근 변경</a> | 
+			<a href=/RecentDiscuss >최근 토론</a> | 
+			<a class=dropdown-toggle style="left: 210px;">특수 기능</a>
+			<div class=dropdown>
+				<ul class=wiki-list>
+					<li>
+						<a href="/NeededPages">작성이 필요한 문서</a>
+					</li>
+					
+					<li>
+						<a href="/OrphanedPages">고립된 문서</a>
+					</li>
+					
+					<li>
+						<a href="/UncategorizedPages">분류가 없는 문서</a>
+					</li>
+					
+					<li>
+						<a href="/LongestPages">내용이 긴 문서</a>
+					</li>
+					
+					<li>
+						<a href="/ShortestPages">내용이 짧은 문서</a>
+					</li>
+					
+					<li>
+						<a href="/OldPages">오래된 문서</a>
+					</li>
+					
+					<li>
+						<a href="/BlockHistory">차단 내역</a>
+					</li>
+					
+					<li>
+						<a href="/random">임의문서</a>
+					</li>
+					
+					<li>
+						<a href="/RandomPage">RandomPage</a>
+					</li>
+					
+					<li>
+						<a href="/License">라이선스</a>
+					</li>
+					
+					<li>
+						<a href="/Upload">파일 올리기</a>
+					</li>
+					
+					{% if perms.has('ipacl') %}
+						<li>
+							<a href="/admin/ipacl">[ADMIN] IPACL</a>
+						</li>
+					{% endif %}
+					
+					{% if perms.has('suspend_account') %}
+						<li>
+							<a href="/admin/suspend_account">[ADMIN] 사용자 차단</a>
+						</li>
+					{% endif %}
+					
+					{% if perms.has('grant') %}
+						<li>
+							<a href="/admin/grant">[ADMIN] 권한</a>
+						</li>
+					{% endif %}
+					
+					{% if perms.has('login_history') %}
+						<li>
+							<a href="/admin/login_history">[ADMIN] 로그인 내역</a>
+						</li>
+					{% endif %}
+				</ul>
+			</div>
+			
+			<span class=pull-right style="margin-right: 14px;">
+				<a class=dropdown-toggle>{% if member %}{{ member.username }}{% else %}사용자{% endif %}</a><div class=dropdown style="right: 8px;">
+					<ul class=wiki-list>
+						{% if member %}
+							<li>
+								<a href="/member/mypage">내 정보</a>
+							</li>
+							
+							<li>
+								<a href="/w/{{ member.username | encode_userdoc }}">내 사용자 문서</a>
+							</li>
+						{% endif %}
+						
+						<li>
+							<a href="/contribution/{% if member %}author{% else %}ip{% endif %}/{% if member %}{{ member.username|url_encode }}{% else %}{{ req_ip }}{% endif %}/document">내 기여 목록</a>
+						</li>
+						
+						{% if member %}
+							<li>
+								<a href="/member/logout?redirect={{ url|url_encode }}">세션 닫기</a>
+							</li>
+						{% else %}
+							<li>
+								<a href="/member/login{{ url|url_encode }}">로그인</a>
+							</li>
+						{% endif %}
+					</ul>
+				</div>
+			</span>
+		</nav>
+		<!--[if IE]>
+			<div style="margin: 4%; width: 100%; ">
+		<![endif]-->
+		{% if config.getString('wiki.sitenotice', null) %}
+			<p><strong>[공지]</strong> {{ config.getString('wiki.sitenotice', '')|safe }}</p>
+		{% endif %}
+		{% if user_document_discuss %}
+			<p><strong>[알림!]</strong> 현재 진행중인 <a href="/discuss/{{ member.username | encode_userdoc }}">사용자 토론</a>이 있습니다.</p>
+		{% endif %}
+		<h3 class=title>
+			{% if document %}<a href="/w/{{ document|encode_doc }}">{% endif %}{{ skinInfo.title }}{% if document %}</a>{% endif %}
+			{% if document %}
+				<span class=pull-right>
+					{% if skinInfo.viewName == 'wiki' || skinInfo.viewName == 'notfound' %}
+						<a class=btn href="/xref/{{ document|encode_doc }}">역링크</a>
+						<a class=btn href="/edit/{{ document|encode_doc }}">편집</a>
+						<a class=btn href="/discuss/{{ document|encode_doc }}">토론</a>
+						<a class=btn href="/history/{{ document|encode_doc }}">역사</a>
+					{% elseif skinInfo.viewName == 'edit' %}
+						<a class=btn href="/history/{{ document|encode_doc }}">역사</a>
+						<a class=btn href="/delete/{{ document|encode_doc }}">삭제</a>
+						<a class=btn href="/move/{{ document|encode_doc }}">이동</a>
+					{% elseif skinInfo.viewName == 'thread_list' || skinInfo.viewName == 'thread_list_close' %}
+						<a class=btn href="/history/{{ document|encode_doc }}">역사</a>
+						<a class=btn href="/edit/{{ document|encode_doc }}">편집</a>
+					{% elseif skinInfo.viewName == 'thread' %}
+						<a class=btn href="/discuss/{{ document|encode_doc }}">토론 목록</a>
+					{% endif %}
+				</span>
+			{% endif %}
+		</h3>
+		<div class=wiki-article>
+			{% block content %}{% endblock %}
+		</div>
+		<small>{{ config.getString('wiki.copyright_text', '') }} {{ config.getString('wiki.footer_text', '') }}<br></small>
+		<!--[if IE]>
+			</div>
+		<![endif]-->
+	</div>
+</div>
