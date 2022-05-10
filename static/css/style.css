@@ -341,10 +341,6 @@ div.input-group * {
 	margin: 0 0 40px 0;
 }
 
-.btns * {
-	float: right;
-}
-
 .line {
 	border-top: 1px inset gray;
 	margin: 0 10px 0 10px;
