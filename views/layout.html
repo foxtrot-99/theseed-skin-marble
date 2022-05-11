@@ -169,16 +169,71 @@
 					{% elseif skinInfo.viewName == 'thread_list' || skinInfo.viewName == 'thread_list_close' %}
 						<a class=btn href="/history/{{ document|encode_doc }}">역사</a>
 						<a class=btn href="/edit/{{ document|encode_doc }}">편집</a>
-					{% elseif skinInfo.viewName == 'thread' %}
-						<a class=btn href="/discuss/{{ document|encode_doc }}">토론 목록</a>
 					{% endif %}
 				</span>
 			{% endif %}
 		</h3>
-		<div class=wiki-article>
-			{% block content %}{% endblock %}
-		</div>
-		<small>{{ config.getString('wiki.copyright_text', '') }} {{ config.getString('wiki.footer_text', '') }}<br></small>
+		
+		<table class=body>
+			<colgroup>
+				<col />
+				<col class=nomobile style="width: 220px;" />
+			</colgroup>
+			
+			<tr>
+				<td class=wiki-article-td>
+					<div class=wiki-article>
+						{% block content %}{% endblock %}
+					</div>
+				</td>
+				
+				<td class="nomobile task-td">
+					{% if skinInfo.viewName == 'thread' %}
+						<dl class="primary tasks">
+							<dt>토론 작업</dt>
+							<dd>
+								<ul class=wiki-list>
+									<li><a href="/discuss/{{ document|encode_doc }}">토론 목록</a></li>
+									{% if perms.has('delete_thread') %}
+										<li><a onclick="location.href = '/admin' + location.pathname + '/delete';">이 토론 삭제</a></li>
+									{% endif %}
+								</ul>
+							</dd>
+						</dl>
+					{% endif %}
+					
+					<dl class="tasks recent-changes">
+						<dt>최근 변경</dt>
+						<dd>
+							갱신 중...
+						</dd>
+					</dl>
+					
+					<dl class=tasks>
+						<dt>자세히</dt>
+						<dd>
+							{% if document %}
+								<strong>{{ document }}</strong>
+								<br />
+								{% if skinInfo.viewName == 'wiki' %}
+									<p>최종 수정: {{ date | to_date | localdate('Y-m-d H:i:s') }}</p>
+								{% elseif skinInfo.viewName == 'notfound' %}
+									<p>존재하지 않는 문서</p>
+								{% else %}
+									<p>{{ document.namespace }} 이름공간</p>
+								{% endif %}
+							{% else %}
+								<strong>{{ skinInfo.title }}</strong>
+								<br />
+								<p>특수 기능</p>
+							{% endif %}
+						</dd>
+					</dl>
+				</td>
+			</tr>
+		</table>
+		
+		<footer>{{ config.getString('wiki.copyright_text', '') }}<br />{{ config.getString('wiki.footer_text', '') }}</footer>
 		<!--[if IE]>
 			</div>
 		<![endif]-->

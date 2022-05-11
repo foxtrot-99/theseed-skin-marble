@@ -138,13 +138,13 @@ a.btnlink {
 	background: linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, .1));
 }
 
-.btn:not(.disabled):hover {
+.btn:not(.disabled):not([disabled]):hover {
 	-webkit-filter: brightness(1.2);
 	-moz-filter: brightness(1.2);
 	filter: brightness(1.2);
 }
 
-.btn:not(.disabled):active {
+.btn:not(.disabled):not([disabled]):active {
 	-webkit-filter: brightness(0.9);
 	-moz-filter: brightness(0.9);
 	filter: brightness(0.9);
@@ -156,8 +156,72 @@ a.btnlink {
 	box-shadow: 3px 3px 3px rgba(0, 0, 0, .7) inset;
 }
 
-button[disabled], a.btn.disabled {
+.btn[disabled], .btn.disabled {
 	filter: saturate(0);
+}
+
+table.body {
+	width: 100%;
+}
+
+table.body td.wiki-article-td {
+	vertical-align: top;
+}
+
+table.body td.task-td {
+	vertical-align: top;
+	padding: 8px;
+}
+table.body td.task-td dl.tasks {
+	margin: 0 0 15px 0;
+}
+
+table.body td.task-td dl.tasks > dt {
+	border-radius: 9px 9px 0 0;
+	background: gray;
+	background: radial-gradient(60% 100% at 50% 110%, rgba(255, 255, 255, .8), transparent), linear-gradient(rgb(60, 112, 207), rgb(52, 167, 255));
+	position: relative;
+	filter: saturate(0.4);
+	padding: 6px 8px 5px 14px;
+	cursor: pointer;
+}
+
+table.body td.task-td dl.tasks.primary > dt {
+	filter: saturate(0.8);
+	font-weight: bold;
+}
+
+table.body td.task-td dl.tasks > dt:before {
+	content: '';
+	position: absolute;
+	display: block;
+	top: 2px;
+	left: 3px;
+	right: 3px;
+	height: 35%;
+	border-radius: 11px 11px 6px 6px;
+	background: linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, .1));
+}
+
+table.body td.task-td dl.tasks > dd {
+	background: whitesmoke;
+	background: linear-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .8));
+	border-radius: 0 0 9px 9px;
+	padding: 5px;
+	position: relative;
+	margin: 0;
+}
+
+table.body td.task-td dl.tasks > dd p {
+	margin-bottom: 0;
+}
+
+table.body td.task-td dl.tasks > dd ul {
+	padding: 0 0 0 10px;
+}
+
+.wiki-article > .wiki-heading > span > a.btn.btn-danger {
+	display: none;
 }
 
 body > .c {
@@ -228,6 +292,33 @@ nav {
 	z-index: 9999999;
 	position: absolute;
 	width: 100%;
+}
+
+h3.title + div.wiki-article + footer {
+	margin: 30px 0 0 0;
+}
+
+.wiki-article div.wiki-category {
+	background: #bad7f2;
+	border-radius: 6px;
+	padding: 8px;
+	position: relative;
+}
+
+.wiki-article div.wiki-category:before {
+	content: '';
+	position: absolute;
+	display: block;
+	top: 2px;
+	left: 3px;
+	right: 3px;
+	height: 35%;
+	border-radius: 11px 11px 6px 6px;
+	background: linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, .1));
+}
+
+.wiki-article div.wiki-category ul {
+	margin: 0;
 }
 
 h3.title {
@@ -359,6 +450,7 @@ div.alert {
 	background: aliceblue;
 	background: linear-gradient(to right, aliceblue, white);
 	border-radius: 6px;
+	margin: 0 0 20px 0;
 }
 
 div.alert button.close {
