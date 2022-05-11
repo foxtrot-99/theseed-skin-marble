@@ -274,6 +274,14 @@ div.input-group * {
 	display: inline-block;
 }
 
+@keyframes resload {
+	from {
+		filter: saturate(1.15);
+	} to {
+		filter: saturate(0.2);
+	}
+}
+
 .res-wrapper .res {
 	display: table;
 	min-width: 500px;
@@ -281,7 +289,7 @@ div.input-group * {
 
 .res-wrapper .res .r-head {
 	border-radius: 9px 9px 0 0;
-	background: gray;;
+	background: gray;
 	background: radial-gradient(60% 100% at 50% 110%, rgba(255, 255, 255, .8), transparent), linear-gradient(rgb(60, 112, 207), rgb(52, 167, 255));
 	position: relative;
 	filter: saturate(0.4);
@@ -289,12 +297,11 @@ div.input-group * {
 }
 
 .res-wrapper .res .r-head.first-author {
-	border-radius: 9px 9px 0 0;
-	background: navy;
-	background: radial-gradient(60% 100% at 50% 110%, rgba(255, 255, 255, .8), transparent), linear-gradient(rgb(60, 112, 207), rgb(52, 167, 255));
-	position: relative;
 	filter: saturate(0.8);
-	padding: 8px;
+}
+
+.res-wrapper.res-loading[data-visible="true"] .r-head {
+  animation: resload 0.5s infinite;
 }
 
 .res-wrapper .res .r-head:before {

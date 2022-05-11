@@ -73,10 +73,6 @@
 					</li>
 					
 					<li>
-						<a href="/random">임의문서</a>
-					</li>
-					
-					<li>
 						<a href="/RandomPage">RandomPage</a>
 					</li>
 					
@@ -112,9 +108,13 @@
 						</li>
 					{% endif %}
 				</ul>
-			</div>
+			</div> | 
+			<a href=/random >랜덤 문서</a>
 			
 			<span class=pull-right style="margin-right: 14px;">
+				<form method=post style="display: inline-block" onsubmit="location.href = '/go/' + $(this).find('> input').val(); return false;" class=search-form style="margin: 0;">
+					<input type=text name=search placeholder="검색" />
+				</form> | 
 				<a class=dropdown-toggle>{% if member %}{{ member.username }}{% else %}사용자{% endif %}</a><div class=dropdown style="right: 8px;">
 					<ul class=wiki-list>
 						{% if member %}
