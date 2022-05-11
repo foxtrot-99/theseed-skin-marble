@@ -1,3 +1,30 @@
+function reload() {
+	try {
+		if(localStorage.getItem('showSidebar') == 'false') {
+			document.querySelector('td.task-td').style.display = 'none';
+			document.querySelector('col#tasks').style.display = 'none';
+		} else {
+			document.querySelector('td.task-td').style.display = '';
+			document.querySelector('col#tasks').style.display = '';
+		}
+	} catch(e) {
+		
+	}
+	
+	var theme = localStorage.getItem('theme');
+	if(theme && theme != 'marbleui') {
+		document.querySelector('link[rel="stylesheet"][href="/skins/marble/css/marbleui.css"]').remove();
+		var link = document.createElement('link');
+		link.setAttribute('rel', 'stylesheet');
+		link.setAttribute('href', '/skins/marble/css/' + theme + '.css');
+		document.querySelector('head').appendChild(link);
+	}
+}
+
+reload();
+
+window.reload = reload;
+
 $(function() {
 	$('div.alert button.close').click(function() {
 		$(this).parent().remove();

@@ -1,20 +1,24 @@
 {
 	"override_views": [
+		"settings"
 	],
 	"static_files": [
-		"css/style.css",
+		"css/base.css",
+		"css/marbleui.css",
 		"js/layout.css"
 	],
 	"auto_js_targets": {
 		"*": [
-			{
-				"path": "js/layout.js"
-			}
+			{ "path": "js/layout.js" }
+		], 
+		"settings": [
+			{ "path": "js/settings.js" }
 		]
 	},
 	"auto_css_targets": {
 		"*": [
-			"css/style.css"
+			"css/base.css",
+			"css/marbleui.css"
 		]
 	},
 	"manual_file_targets": {

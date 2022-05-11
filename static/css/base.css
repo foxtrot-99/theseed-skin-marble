@@ -1,0 +1,229 @@
+body {
+	background-color: aliceblue;
+}
+
+.form-group {
+	margin: 0 0 40px 0;
+}
+
+.form-control {
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	padding: 8px 12px 8px 12px;
+	box-shadow: 3px 3px 5px gray inset;
+	width: 100%;
+	transition: all .2s;
+}
+
+.form-control[readonly] {
+	background-color: #eceeef;
+}
+
+.form-control:focus {
+	border-color: rgb(50, 125, 185);
+	box-shadow: 3px 3px 5px rgb(115, 185, 225) inset;
+}
+
+.table {
+	width: 100%;
+	border-spacing: 0;
+}
+
+.table thead th {
+	border-width: 1px 0 2px 0;
+	border-style: solid;
+	border-color: gray;
+	padding: 10px 12px 10px 12px;
+}
+
+.table tbody td {
+	border-bottom: 1px solid gray;
+	padding: 10px 12px 10px 12px;
+}
+
+.table tbody tr:hover {
+	background: rgba(0, 0, 0, .1);
+}
+
+.btn {
+	appearence: button;
+	-moz-appearence: button;
+	-webkit-appearence: button;
+}
+
+body {
+	margin: 0px;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+* {
+	font-family: '돋움'; }
+
+code, pre, xmp {
+	font-family: 'Fixedsys';
+	font-size: 12pt; }
+
+body > .c {
+	margin: 25px;
+	border-radius: 6px;
+	padding: 0;
+	border: 1px solid rgb(64, 64, 64);
+	height: fit-content;
+	position: relative;
+}
+
+body > .c > .container {
+	border: 3px outset #aaa;
+	border-radius: 6px;
+	padding: 10px 12px 10px 12px;
+	background: rgba(255, 255, 255, .8);
+}
+
+body > .c > .container > .glossy {
+	border-radius: 20px 20px 15px 15px;
+	height: 12px;
+	background-image: linear-gradient(to bottom, rgba(255, 255, 255, .9), rgba(255, 255, 255, .3));
+	position: absolute;
+	width: calc(100% - 10px);
+	margin: -10px -10px;
+}
+
+table.body {
+	width: 100%;
+}
+
+table.body td.wiki-article-td {
+	vertical-align: top;
+}
+
+table.body td.task-td {
+	vertical-align: top;
+	padding: 8px;
+}
+
+table.body td.task-td dl.tasks {
+	margin: 0 0 15px 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:not(.btn) {
+	color: #0060bf;
+	cursor: pointer;
+}
+
+a.btnlink {
+	text-decoration: none;
+	color: currentcolor;
+}
+
+a.filelink {
+	color: currentcolor !important;
+}
+
+a.btnlink {
+	color: white !important;
+}
+
+.multicol {
+	column-count: 3;
+}
+
+.pull-right {
+	float: right;
+}
+
+h3.title + div.wiki-article + footer {
+	margin: 30px 0 0 0;
+}
+
+nav {
+	display: block;
+	padding: 2px;
+	z-index: 9999999;
+	position: absolute;
+	width: 100%;
+}
+
+.wiki-article div.wiki-category ul {
+	margin: 0;
+}
+
+h3.title {
+	margin-top: 35px;
+}
+
+h3.title > a {
+	color: currentcolor;
+}
+
+div#edit > textarea#textInput, #previewFrame {
+	height: 400px;
+}
+
+nav div.dropdown {
+	display: none;
+	position: absolute;
+	background: whitesmoke;
+	background: linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .9));
+	border-radius: 9px;
+	padding: 0 20px 0 0;
+}
+
+#previewFrame {
+	width: 100%;
+}
+
+nav, input.form-control, textarea.form-control {
+	width: calc(100% - 20px);
+}
+
+@media ( max-width: 620px ) {
+	body {
+		background-size: cover;
+	}
+	
+	body > .c {
+		margin: 10px;
+	}
+}
+
+@media only screen and (max-width: 799px) {
+	.nomobil2 {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 1023px) {
+	.nomobil3 {
+		display: none;
+	}
+	
+	.multicol {
+		column-count: 2;
+	}
+}
+
+@media only screen and (max-width: 639px) {
+	.nomobile {
+		display: none;
+	}
+	
+	.multicol {
+		column-count: 1;
+	}
+}
+
+@media only screen and (min-width: 800px) {
+	small, code, pre, xmp, p {
+		font-size: 16px;
+	}
+	
+	button {
+		font-size: 9pt;
+	}
+}

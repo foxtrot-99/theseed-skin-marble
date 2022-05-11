@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block content %}
+<form>
+	<div class=form-group>
+		<label class=control-label>테마: </label><br />
+		<select class=form-control id=themeSelect>
+			<option value=classic>클래식</option>
+			<option value=snow>겨울눈</option>
+			<option value=marbleui selected>구슬우주</option>
+		</select>
+		<a href=? class=btn style="padding-left: 30px; padding-right: 30px;">적용</a>
+	</div>
+	
+	<div class=form-group>
+		<div class=checkbox>
+			<label class=control-label>
+				<input type=checkbox id=sidebarToggle checked />
+				오른쪽에 일반 작업 표시
+			</label>
+		</div>
+	</div>
+</form>
+{% endblock %}
