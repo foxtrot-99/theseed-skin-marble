@@ -13,6 +13,7 @@
 	text-shadow: none;
 	font-size: 9pt;
 	padding: 3px 12px 3px 12px;
+	transition: filter ease .25s;
 	font-weight: initial; }
 
 .btn:before {
@@ -32,21 +33,15 @@
 }
 
 .btn:not(.disabled):not([disabled]):hover {
-	-webkit-filter: brightness(1.2);
-	-moz-filter: brightness(1.2);
-	filter: brightness(1.2);
+	-webkit-filter: brightness(1.2) hue-rotate(5deg) saturate(0.8);
+	-moz-filter: brightness(1.2) hue-rotate(5deg) saturate(0.8);
+	filter: brightness(1.2) hue-rotate(5deg) saturate(0.8);
 }
 
 .btn:not(.disabled):not([disabled]):active {
 	-webkit-filter: brightness(0.9);
 	-moz-filter: brightness(0.9);
 	filter: brightness(0.9);
-	
-	background: -webkit-linear-gradient(rgb(60, 112, 207), rgb(52, 167, 255));
-	background: -moz-linear-gradient(rgb(60, 112, 207), rgb(52, 167, 255));
-	background: linear-gradient(rgb(60, 112, 207), rgb(52, 167, 255));
-	
-	box-shadow: 3px 3px 3px rgba(0, 0, 0, .7) inset;
 }
 
 .btn[disabled], .btn.disabled {
@@ -254,7 +249,7 @@ div.input-group * {
 }
 
 .res-wrapper .res:hover .r-head.first-author {
-	filter: saturate(1.6) hue-rotate(10deg);
+	filter: saturate(1.9) hue-rotate(10deg);
 }
 
 .res-wrapper .res .r-body {
@@ -348,7 +343,8 @@ ul.nav-tabs li.nav-item a.nav-link.active {
 
 @media ( max-width: 620px ) {
 	.res-wrapper .res {
-		min-width: 450px;
+		min-width: 1px;
 		max-width: 100%;
+		width: 100% !important;
 	}
 }

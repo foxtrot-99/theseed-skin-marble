@@ -46,9 +46,9 @@ body {
 }
 
 .btn {
-	appearence: button;
-	-moz-appearence: button;
-	-webkit-appearence: button;
+	appearance: button;
+	-moz-appearance: button;
+	-webkit-appearance: button;
 }
 
 body {

@@ -6,7 +6,8 @@
 		"css/base.css",
 		"css/marbleui.css",
 		"js/layout.css",
-		"js/jquery-ui.min.js"
+		"js/jquery-ui.min.js",
+		"img/iebg.jpg"
 	],
 	"auto_js_targets": {
 		"*": [
