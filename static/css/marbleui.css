@@ -226,6 +226,7 @@ div.input-group * {
 	position: relative;
 	filter: saturate(0.4);
 	padding: 8px;
+	transition: filter ease .5s;
 }
 
 .res-wrapper .res .r-head.first-author {
@@ -246,6 +247,14 @@ div.input-group * {
 	height: 35%;
 	border-radius: 11px 11px 6px 6px;
 	background: linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, .1));
+}
+
+.res-wrapper .res:hover .r-head {
+	filter: saturate(1.2) hue-rotate(-30deg);
+}
+
+.res-wrapper .res:hover .r-head.first-author {
+	filter: saturate(1.6) hue-rotate(10deg);
 }
 
 .res-wrapper .res .r-body {

@@ -10,4 +10,5 @@ $(function() {
 	});
 	
 	$('#themeSelect').val(localStorage.getItem('theme') || 'marbleui');
+	$('#sidebarToggle').prop('checked', localStorage.getItem('showSidebar') == 'false' ? false : true);
 });

@@ -1,4 +1,4 @@
-function reload() {
+function reload(n) {
 	try {
 		if(localStorage.getItem('showSidebar') == 'false') {
 			document.querySelector('td.task-td').style.display = 'none';
@@ -11,19 +11,25 @@ function reload() {
 		
 	}
 	
-	var theme = localStorage.getItem('theme');
-	if(theme && theme != 'marbleui') {
-		document.querySelector('link[rel="stylesheet"][href="/skins/marble/css/marbleui.css"]').remove();
-		var link = document.createElement('link');
-		link.setAttribute('rel', 'stylesheet');
-		link.setAttribute('href', '/skins/marble/css/' + theme + '.css');
-		document.querySelector('head').appendChild(link);
+	if(!n) {
+		var theme = localStorage.getItem('theme');
+		if(theme && theme != 'marbleui') {
+			document.querySelector('link[rel="stylesheet"][href="/skins/marble/css/marbleui.css"]').remove();
+			var link = document.createElement('link');
+			link.setAttribute('rel', 'stylesheet');
+			link.setAttribute('href', '/skins/marble/css/' + theme + '.css');
+			document.querySelector('head').appendChild(link);
+		}
 	}
 }
 
 reload();
 
 window.reload = reload;
+
+window.onload = function() {
+	reload(1);
+};
 
 $(function() {
 	$('div.alert button.close').click(function() {
