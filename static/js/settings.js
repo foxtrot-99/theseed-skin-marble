@@ -4,6 +4,26 @@ $(function() {
 		reload();
 	});
 	
+	$('#disableNoticeAlert').click(function() {
+		localStorage.setItem('disableNoticeAlert', $(this).is(':checked') + '');
+		reload();
+	});
+	
+	$('#disableUserDocumentDiscussAlert').click(function() {
+		localStorage.setItem('disableUserDocumentDiscussAlert', $(this).is(':checked') + '');
+		reload();
+	});
+	
+	$('#foldDetailsCard').click(function() {
+		localStorage.setItem('foldDetailsCard', $(this).is(':checked') + '');
+		reload();
+	});
+	
+	$('#foldRecentCard').click(function() {
+		localStorage.setItem('foldRecentCard', $(this).is(':checked') + '');
+		reload();
+	});
+	
 	$('#themeSelect').change(function() {
 		localStorage.removeItem('theme');
 		localStorage.setItem('theme', $(this).val());

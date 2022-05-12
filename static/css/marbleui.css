@@ -134,11 +134,12 @@ body > .c > .container > .glossy {
 .form-control {
 	border: 2px inset rgb(192, 192, 192);
 	padding: 6px 8px 6px 8px;
-	background: rgba(255, 255, 255, .5);
+	background: linear-gradient(rgba(255, 255, 255, .1), rgba(255, 255, 255, .6));
 }
 
 .form-control[readonly], .form-control[disabled] {
-	background: rgba(192, 192, 192, .7);
+	background: linear-gradient(rgba(0, 0, 0, .1), rgba(255, 255, 255, .3));
+	color: rgba(0, 0, 0, .5);
 }
 
 body {
@@ -306,13 +307,13 @@ p.alert {
 	margin: 0 0 20px 0;
 }
 
-div.alert button.close {
+.alert button.close {
 	float: right;
 	background: transparent;
 	border: none;
 }
 
-div.alert button.close span.sr-only {
+.alert button.close span.sr-only {
 	display: none;
 }
 

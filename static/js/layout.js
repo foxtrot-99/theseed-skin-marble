@@ -7,9 +7,39 @@ function reload(n) {
 			document.querySelector('td.task-td').style.display = '';
 			document.querySelector('col#tasks').style.display = '';
 		}
-	} catch(e) {
+	} catch(e) {}
 		
-	}
+	try {
+		if(localStorage.getItem('disableNoticeAlert') == 'true') {
+			document.querySelector('p.alert#noticeAlert').style.display = 'none';
+		} else {
+			document.querySelector('p.alert#noticeAlert').style.display = '';
+		}
+	} catch(e) {}
+		
+	try {
+		if(localStorage.getItem('disableUserDocumentDiscussAlert') == 'true') {
+			document.querySelector('p.alert#userDocumentDiscussAlert').style.display = 'none';
+		} else {
+			document.querySelector('p.alert#userDocumentDiscussAlert').style.display = '';
+		}
+	} catch(e) {}
+		
+	try {
+		if(localStorage.getItem('foldRecentCard') == 'true') {
+			document.querySelector('dd#recentChangesBody').style.display = 'none';
+		} else {
+			document.querySelector('dd#recentChangesBody').style.display = '';
+		}
+	} catch(e) {}
+		
+	try {
+		if(localStorage.getItem('foldDetailsCard') == 'true') {
+			document.querySelector('dd#detailsBody').style.display = 'none';
+		} else {
+			document.querySelector('dd#detailsBody').style.display = '';
+		}
+	} catch(e) {}
 	
 	if(!n) {
 		var theme = localStorage.getItem('theme');
@@ -32,7 +62,7 @@ window.onload = function() {
 };
 
 $(function() {
-	$('div.alert button.close').click(function() {
+	$('.alert button.close').click(function() {
 		$(this).parent().remove();
 	});
 	

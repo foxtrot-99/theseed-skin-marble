@@ -107,6 +107,11 @@ table.body td.task-td dl.tasks {
 	margin: 0 0 15px 0;
 }
 
+form .btns, .settings-section .btns {
+	text-align: right;
+	margin-top: 2rem;
+}
+
 a {
 	text-decoration: none;
 }
@@ -182,6 +187,42 @@ nav, input.form-control, textarea.form-control {
 	width: calc(100% - 20px);
 }
 
+nav span.pull-right form.search-form {
+	display: inline-block; 
+	position: absolute; 
+	top: 1px;
+	right: 45px;
+}
+
+nav span.pull-right a img.profile-img {
+	width: 20px;
+	border-radius: 10px;
+	border: 3px inset #004080;
+	position: absolute; 
+	top: -1px;
+	right: 10px;
+}
+
+.form-inline .form-control {
+	width: auto;
+}
+.form-inline div {
+	display: inline-block;
+	margin-bottom: 0;
+}
+
+.form-inline .form-group > label {
+	display: block;
+}
+
+div.seed-acl-div > div.table-wrap > table.table > colgroup > col + col + col + col + col {
+	width: 90px !important;
+}
+
+small {
+	font-size: 9pt;
+}
+
 @media ( max-width: 620px ) {
 	body {
 		background-size: cover;
@@ -190,6 +231,12 @@ nav, input.form-control, textarea.form-control {
 	body > .c {
 		margin: 10px;
 		margin: 10px 1px 10px 1px;
+	}
+	
+	nav span.pull-right {
+		position: absolute;
+		top: 20px;
+		right: -22px;
 	}
 }
 
@@ -220,7 +267,7 @@ nav, input.form-control, textarea.form-control {
 }
 
 @media only screen and (min-width: 800px) {
-	small, code, pre, xmp, p {
+	code, pre, xmp, p {
 		font-size: 16px;
 	}
 	
