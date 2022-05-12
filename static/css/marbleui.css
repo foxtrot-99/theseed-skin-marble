@@ -285,7 +285,15 @@ div.input-group * {
 	margin: 0 10px 0 10px;
 }
 
-div.alert {
+div.wiki-content > div[style][onmouseover][onmouseout] {
+	background-color: rgba(255, 255, 255, .7);
+}
+
+p.alert {
+	margin-top: 40px;
+}
+
+.alert {
 	padding: 8px;
 	border: 1px solid black;
 	background: aliceblue;
@@ -327,4 +335,11 @@ ul.nav-tabs li.nav-item a.nav-link.active {
 	border-width: 1px 1px 0 1px;
 	background: white;
 	background: linear-gradient(#b6ddff, aliceblue);
+}
+
+@media ( max-width: 620px ) {
+	.res-wrapper .res {
+		min-width: 450px;
+		max-width: 100%;
+	}
 }

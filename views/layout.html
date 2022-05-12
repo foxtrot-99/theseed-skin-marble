@@ -157,10 +157,10 @@
 			<div style="margin: 4%; width: 100%; ">
 		<![endif]-->
 		{% if config.getString('wiki.sitenotice', null) %}
-			<p><strong>[공지]</strong> {{ config.getString('wiki.sitenotice', '')|safe }}</p>
+			<p class=alert><strong>[공지]</strong> {{ config.getString('wiki.sitenotice', '')|safe }}</p>
 		{% endif %}
 		{% if user_document_discuss %}
-			<p><strong>[알림!]</strong> 현재 진행중인 <a href="/discuss/{{ member.username | encode_userdoc }}">사용자 토론</a>이 있습니다.</p>
+			<p class=alert><strong>[알림!]</strong> 현재 진행중인 <a href="/discuss/{{ member.username | encode_userdoc }}">사용자 토론</a>이 있습니다.</p>
 		{% endif %}
 		<h3 class=title>
 			{% if document %}<a href="/w/{{ document|encode_doc }}">{% endif %}{{ skinInfo.title }}{% if document %}</a>{% endif %}

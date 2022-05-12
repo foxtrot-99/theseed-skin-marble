@@ -189,6 +189,7 @@ nav, input.form-control, textarea.form-control {
 	
 	body > .c {
 		margin: 10px;
+		margin: 10px 1px 10px 1px;
 	}
 }
 

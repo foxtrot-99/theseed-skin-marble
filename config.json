@@ -5,11 +5,13 @@
 	"static_files": [
 		"css/base.css",
 		"css/marbleui.css",
-		"js/layout.css"
+		"js/layout.css",
+		"js/jquery-ui.min.js"
 	],
 	"auto_js_targets": {
 		"*": [
-			{ "path": "js/layout.js" }
+			{ "path": "js/layout.js" },
+			{ "path": "js/jquery-ui.min.js" }
 		], 
 		"settings": [
 			{ "path": "js/settings.js" }
