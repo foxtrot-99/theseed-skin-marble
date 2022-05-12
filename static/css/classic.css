@@ -1,8 +1,9 @@
 a.btn {
-	background: navy;
-	color: white;
-	padding: 4px;
-	border-radius: 4px;
+	color: black;
+	font-size: 9pt;
+	-moz-appearance: button;
+	-webkit-appearance: button;
+	appearance: button;
 }
 
 body {
