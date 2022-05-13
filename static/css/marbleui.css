@@ -207,6 +207,26 @@ div.input-group * {
 	}
 }
 
+@keyframes headhover {
+	0% {
+		filter: saturate(0.4) hue-rotate(-30deg);
+	} 50% {
+		filter: saturate(1.2) hue-rotate(-30deg);
+	} 100% {
+		filter: saturate(0.4) hue-rotate(-30deg);
+	}
+}
+
+@keyframes headhoverf {
+	0% {
+		filter: saturate(0.8) hue-rotate(0deg);
+	} 50% {
+		filter: saturate(1.9) hue-rotate(0deg);
+	} 100% {
+		filter: saturate(0.8) hue-rotate(0deg);
+	}
+}
+
 .res-wrapper .res {
 	display: table;
 	min-width: 500px;
@@ -243,11 +263,11 @@ div.input-group * {
 }
 
 .res-wrapper .res:hover .r-head {
-	filter: saturate(1.2) hue-rotate(-30deg);
+	animation: headhover 2s infinite;
 }
 
 .res-wrapper .res:hover .r-head.first-author {
-	filter: saturate(1.9) hue-rotate(10deg);
+	animation: headhoverf 2s infinite;
 }
 
 .res-wrapper .res .r-body {
