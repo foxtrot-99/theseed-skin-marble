@@ -40,6 +40,14 @@ function reload(n) {
 			document.querySelector('dd#detailsBody').style.display = '';
 		}
 	} catch(e) {}
+		
+	try {
+		if(localStorage.getItem('scenicBtn') == 'true') {
+			document.querySelector('span#scenicBtnStyle').outerHTML = '<style id=scenicBtnStyle>' + document.querySelector('span#scenicBtnStyle').innerHTML + '</style>';
+		} else {
+			document.querySelector('style#scenicBtnStyle').outerHTML = '<span id=scenicBtnStyle style="display: none;">' + document.querySelector('style#scenicBtnStyle').innerHTML + '</span>';
+		}
+	} catch(e) {}
 	
 	if(!n) {
 		var theme = localStorage.getItem('theme');
@@ -73,7 +81,7 @@ $(function() {
 		$(this).attr('class', 'nav-link active');
 	});
 	
-	$('nav a.dropdown-toggle').click(function() {
+	$('nav .dropdown-toggle').click(function() {
 		$(this).next().slideToggle('fast');
 	});
 	

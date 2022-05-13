@@ -14,6 +14,11 @@ $(function() {
 		reload();
 	});
 	
+	$('#scenicBtn').click(function() {
+		localStorage.setItem('scenicBtn', $(this).is(':checked') + '');
+		reload();
+	});
+	
 	$('#foldDetailsCard').click(function() {
 		localStorage.setItem('foldDetailsCard', $(this).is(':checked') + '');
 		reload();
@@ -31,4 +36,9 @@ $(function() {
 	
 	$('#themeSelect').val(localStorage.getItem('theme') || 'marbleui');
 	$('#sidebarToggle').prop('checked', localStorage.getItem('showSidebar') == 'false' ? false : true);
+	$('#scenicBtn').prop('checked', localStorage.getItem('scenicBtn') == 'true' ? true : false);
+	$('#foldDetailsCard').prop('checked', localStorage.getItem('foldDetailsCard') == 'true' ? true : false);
+	$('#foldRecentCard').prop('checked', localStorage.getItem('foldRecentCard') == 'true' ? true : false);
+	$('#disableNoticeAlert').prop('checked', localStorage.getItem('disableNoticeAlert') == 'true' ? true : false);
+	$('#disableUserDocumentDiscussAlert').prop('checked', localStorage.getItem('disableUserDocumentDiscussAlert') == 'true' ? true : false);
 });

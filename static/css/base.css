@@ -112,6 +112,10 @@ form .btns, .settings-section .btns {
 	margin-top: 2rem;
 }
 
+div.dropdown hr {
+	border-color: whitesmoke;
+}
+
 a {
 	text-decoration: none;
 }
