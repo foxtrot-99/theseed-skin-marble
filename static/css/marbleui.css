@@ -92,10 +92,6 @@ table.body td.task-td dl.tasks > dd ul {
 	padding: 0 0 0 10px;
 }
 
-.wiki-article > .wiki-heading > span > a.btn.btn-danger {
-	display: none;
-}
-
 body > .c {
 	border-radius: 10px;
 	padding: 0;
@@ -171,6 +167,7 @@ body {
 }
 
 ol.breadcrumb.link-nav {
+	display: table;
 	border: 2px inset gray;
 	padding: 10px;
 	border-radius: 6px;
@@ -294,29 +291,6 @@ div.wiki-content > div[style][onmouseover][onmouseout] {
 	background-color: rgba(255, 255, 255, .7);
 }
 
-p.alert {
-	margin-top: 40px;
-}
-
-.alert {
-	padding: 8px;
-	border: 1px solid black;
-	background: aliceblue;
-	background: linear-gradient(to right, aliceblue, white);
-	border-radius: 6px;
-	margin: 0 0 20px 0;
-}
-
-.alert button.close {
-	float: right;
-	background: transparent;
-	border: none;
-}
-
-.alert button.close span.sr-only {
-	display: none;
-}
-
 ul.nav-tabs {
 	margin: 0;
 	padding: 0;
@@ -340,12 +314,4 @@ ul.nav-tabs li.nav-item a.nav-link.active {
 	border-width: 1px 1px 0 1px;
 	background: white;
 	background: linear-gradient(#b6ddff, aliceblue);
-}
-
-@media ( max-width: 620px ) {
-	.res-wrapper .res {
-		min-width: 1px;
-		max-width: 100%;
-		width: 100% !important;
-	}
 }

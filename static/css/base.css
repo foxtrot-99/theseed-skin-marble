@@ -112,6 +112,33 @@ form .btns, .settings-section .btns {
 	margin-top: 2rem;
 }
 
+.wiki-article > .wiki-heading > span > a.btn.btn-danger {
+	display: none;
+}
+
+p.alert {
+	margin-top: 40px;
+}
+
+.alert {
+	padding: 8px;
+	border: 1px solid black;
+	background: aliceblue;
+	background: linear-gradient(to right, aliceblue, white);
+	border-radius: 6px;
+	margin: 0 0 20px 0;
+}
+
+.alert button.close {
+	float: right;
+	background: transparent;
+	border: none;
+}
+
+.alert button.close span.sr-only {
+	display: none;
+}
+
 div.dropdown hr {
 	border-color: whitesmoke;
 }
@@ -277,5 +304,13 @@ small {
 	
 	button {
 		font-size: 9pt;
+	}
+}
+
+@media ( max-width: 620px ) {
+	.res-wrapper .res {
+		min-width: 1px;
+		max-width: 100%;
+		width: 100% !important;
 	}
 }
