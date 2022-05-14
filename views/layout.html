@@ -218,7 +218,42 @@
 			<p class=alert id=userDocumentDiscussAlert><strong>[알림!]</strong> 현재 진행중인 <a href="/discuss/{{ member.username | encode_userdoc }}">사용자 토론</a>이 있습니다.<button class=close>×</button></p>
 		{% endif %}
 		<h3 class=title>
-			{% if document %}<a href="/w/{{ document|encode_doc }}">{% endif %}{{ skinInfo.title }}{% if document %}</a>{% endif %}
+			{% if document %}
+				<a href="/w/{{ document|encode_doc }}">{{ document }}</a>
+				{% if skinInfo.viewName == 'edit' %}
+					<small>(편집)</small>
+				{% elseif skinInfo.viewName == 'thread' %}
+					<small>(토론 중)</small>
+				{% elseif skinInfo.viewName == 'thread_list' %}
+					<small>(토론)</small>
+				{% elseif skinInfo.viewName == 'thread_list_close' %}
+					<small>(닫힌 토론)</small>
+				{% elseif skinInfo.viewName == 'edit_request_list_close' %}
+					<small>(닫힌 편집 요청)</small>
+				{% elseif skinInfo.viewName == 'xref' %}
+					<small>(역링크)</small>
+				{% elseif skinInfo.viewName == 'history' %}
+					<small>(문서 역사)</small>
+				{% elseif skinInfo.viewName == 'move' %}
+					<small>(이동)</small>
+				{% elseif skinInfo.viewName == 'delete' %}
+					<small>(삭제)</small>
+				{% elseif skinInfo.viewName == 'diff' %}
+					<small>(비교)</small>
+				{% elseif skinInfo.viewName == 'acl' %}
+					<small>(ACL)</small>
+				{% elseif skinInfo.viewName == 'edit_request' %}
+					<small>(편집요청)</small>
+				{% elseif skinInfo.viewName == 'revert' %}
+					<small>(되돌리기)</small>
+				{% endif %}
+				{% if skinInfo.viewName == 'wiki' && rev %}
+					<small>(r{{ rev }} 판)</small>
+				{% endif %}
+			{% else %}
+				{{ skinInfo.title }}
+			{% endif %}
+			
 			{% if document %}
 				<span class=pull-right>
 					{% if skinInfo.viewName == 'wiki' || skinInfo.viewName == 'notfound' %}
@@ -227,6 +262,7 @@
 						<a class=btn href="/discuss/{{ document|encode_doc }}">토론</a>
 						<a class=btn href="/history/{{ document|encode_doc }}">역사</a>
 						<a class=btn href="/acl/{{ document|encode_doc }}">ACL</a>
+						{% if user %}<a class=btn href="/contribution/author/{{ document.title|url_encode }}/document">기여 목록</a>{% endif %}
 					{% elseif skinInfo.viewName == 'edit' %}
 						<a class=btn href="/history/{{ document|encode_doc }}">역사</a>
 						<a class=btn href="/delete/{{ document|encode_doc }}">삭제</a>
@@ -299,8 +335,5 @@
 		</table>
 		
 		<footer><hr />{{ config.getString('wiki.copyright_text', '') }}<br />{{ config.getString('wiki.footer_text', '') }}</footer>
-		<!--[if IE]>
-			</div>
-		<![endif]-->
 	</div>
 </div>
